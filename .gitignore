@@ -1,0 +1,57 @@
+# Node modules
+node_modules/
+
+# Build output
+build/
+dist/
+out/
+.next/
+.vercel/
+
+# Local environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+logs/
+*.log
+
+# Cache
+.cache/
+.eslintcache
+.parcel-cache/
+.babel-cache/
+.webpack-cache/
+stylelintcache/
+.next/cache/
+
+# Editor settings
+.vscode/
+.idea/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Nginx configs (if dynamically generated or copied)
+nginx/*.temp
+nginx/logs/
+nginx/cache/
+
+# Docker ignored files
+docker/*.log
+docker/logs/
+docker-temp/
+docker-cache/
+
+# Misc
+*.swp
+*.swo
+*.tmp

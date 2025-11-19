@@ -1,0 +1,383 @@
+.output-console {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #1a1a1a;
+  border-left: 1px solid #333;
+  overflow: hidden;
+}
+
+/* Console Header */
+.console-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: #2d2d2d;
+  border-bottom: 1px solid #404040;
+  min-height: 56px;
+  flex-shrink: 0;
+}
+
+.status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.status-icon {
+  font-size: 16px;
+}
+
+.status-text {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.status-running {
+  color: #f59e0b;
+}
+
+.status-success {
+  color: #10b981;
+}
+
+.status-error {
+  color: #ef4444;
+}
+
+.status-warning {
+  color: #f59e0b;
+}
+
+.status-idle {
+  color: #9ca3af;
+}
+
+.execution-loader {
+  display: flex;
+  gap: 4px;
+  margin-left: 12px;
+}
+
+.loader-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #f59e0b;
+  animation: bounce 1.4s infinite ease-in-out;
+}
+
+.loader-dot:nth-child(1) { animation-delay: -0.32s; }
+.loader-dot:nth-child(2) { animation-delay: -0.16s; }
+
+@keyframes bounce {
+  0%, 80%, 100% {
+    transform: scale(0);
+    opacity: 0.5;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.console-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.action-btn {
+  background: none;
+  border: none;
+  padding: 6px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 16px;
+  color: #9ca3af;
+}
+
+.action-btn:hover {
+  background: #404040;
+  color: #fff;
+}
+
+/* Console Content */
+.console-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 0;
+}
+
+/* Output Cards */
+.output-card {
+  background: #2d2d2d;
+  border: 1px solid #404040;
+  border-radius: 8px;
+  overflow: hidden;
+  animation: slideIn 0.2s ease-out;
+}
+
+.output-card.error {
+  border-color: #ef4444;
+}
+
+.output-card.success {
+  border-color: #10b981;
+}
+
+.output-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: #363636;
+  border-bottom: 1px solid #404040;
+  font-weight: 600;
+  font-size: 14px;
+  color: #e5e5e5;
+}
+
+.output-card.error .output-header {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+  border-bottom-color: #ef4444;
+}
+
+.output-card.success .output-header {
+  background: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+  border-bottom-color: #10b981;
+}
+
+.output-icon {
+  font-size: 14px;
+}
+
+.output-text {
+  margin: 0;
+  padding: 16px;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 13px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-break: break-word;
+  background: #1a1a1a;
+  color: #e5e5e5;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.stdout {
+  border-left: 3px solid #10b981;
+}
+
+.stderr {
+  border-left: 3px solid #ef4444;
+  background: rgba(239, 68, 68, 0.05);
+}
+
+/* Input Card */
+.input-card {
+  background: rgba(245, 158, 11, 0.05);
+  border: 2px solid #f59e0b;
+  border-radius: 8px;
+  overflow: hidden;
+  animation: slideIn 0.3s ease-out;
+}
+
+.input-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: rgba(245, 158, 11, 0.1);
+  border-bottom: 1px solid #f59e0b;
+  font-weight: 600;
+  font-size: 14px;
+  color: #f59e0b;
+}
+
+.input-icon {
+  font-size: 14px;
+}
+
+.input-container {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.input-textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #404040;
+  border-radius: 6px;
+  background: #1a1a1a;
+  color: #e5e5e5;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 13px;
+  line-height: 1.5;
+  resize: vertical;
+  min-height: 80px;
+  outline: none;
+  transition: all 0.2s;
+}
+
+.input-textarea:focus {
+  border-color: #f59e0b;
+  box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.1);
+}
+
+.input-textarea::placeholder {
+  color: #6b7280;
+}
+
+.submit-btn {
+  align-self: flex-end;
+  padding: 8px 20px;
+  background: #f59e0b;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.submit-btn:hover:not(:disabled) {
+  background: #d97706;
+  transform: translateY(-1px);
+}
+
+.submit-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.input-hint {
+  padding: 8px 16px;
+  background: #2d2d2d;
+  border-top: 1px solid #404040;
+  font-size: 12px;
+  color: #9ca3af;
+  text-align: center;
+}
+
+/* Empty State */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 20px;
+  color: #6b7280;
+  flex: 1;
+}
+
+.empty-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  opacity: 0.7;
+}
+
+.empty-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #e5e5e5;
+}
+
+.empty-description {
+  font-size: 14px;
+  line-height: 1.5;
+  max-width: 300px;
+}
+
+/* Animations */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scrollbars */
+.console-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.console-content::-webkit-scrollbar-track {
+  background: #2d2d2d;
+  border-radius: 3px;
+}
+
+.console-content::-webkit-scrollbar-thumb {
+  background: #404040;
+  border-radius: 3px;
+}
+
+.console-content::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.output-text::-webkit-scrollbar {
+  width: 4px;
+}
+
+.output-text::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.output-text::-webkit-scrollbar-thumb {
+  background: #404040;
+  border-radius: 2px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .console-header {
+    padding: 10px 12px;
+    min-height: 48px;
+  }
+  
+  .console-content {
+    padding: 12px;
+    gap: 10px;
+  }
+  
+  .output-header {
+    padding: 10px 12px;
+  }
+  
+  .output-text {
+    padding: 12px;
+    font-size: 12px;
+  }
+  
+  .input-container {
+    padding: 12px;
+  }
+  
+  .empty-state {
+    padding: 30px 16px;
+  }
+  
+  .empty-icon {
+    font-size: 36px;
+  }
+}

@@ -1,0 +1,127 @@
+.compiler-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.control-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  border: none;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  min-width: fit-content;
+}
+
+.control-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.control-btn:not(:disabled):hover {
+  transform: translateY(-1px);
+}
+
+.control-btn.primary {
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+  color: white;
+  box-shadow: var(--shadow-sm);
+}
+
+.control-btn.primary:hover:not(:disabled) {
+  box-shadow: var(--shadow-md);
+}
+
+.control-btn.primary.running {
+  background: linear-gradient(135deg, var(--warning-color), #f59e0b);
+  animation: pulse 2s infinite;
+}
+
+.control-btn.secondary {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.control-btn.secondary:hover:not(:disabled) {
+  background: var(--bg-tertiary);
+  border-color: var(--primary-color);
+}
+
+.control-btn.danger {
+  background: var(--error-color);
+  color: white;
+}
+
+.control-btn.danger:hover:not(:disabled) {
+  background: #dc2626;
+  box-shadow: var(--shadow-sm);
+}
+
+.control-icon {
+  font-size: 1.1rem;
+}
+
+.control-label {
+  white-space: nowrap;
+}
+
+.shortcut-hint {
+  font-size: 0.75rem;
+  opacity: 0.7;
+  margin-left: 0.25rem;
+  font-weight: 400;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .compiler-controls {
+    gap: 0.5rem;
+  }
+
+  .control-btn {
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .control-label {
+    display: none;
+  }
+
+  .shortcut-hint {
+    display: none;
+  }
+
+  .control-btn {
+    padding: 0.6rem;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    justify-content: center;
+  }
+
+  .control-icon {
+    margin: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .compiler-controls {
+    gap: 0.25rem;
+  }
+
+  .control-btn {
+    width: 40px;
+    height: 40px;
+    padding: 0.5rem;
+  }
+}
